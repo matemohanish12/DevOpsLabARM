@@ -46,8 +46,8 @@ jobs:
         # provision and configure infrastructure using azure cli deploying arm template
         - name: Deploy ARM template
           env:
-            SERVICE_PRINCIPAL: http://AbelDemoSubscriptionSP
-            SERVICE_PRINCIPAL_TENANT: 72f988bf-86f1-41af-91ab-2d7cd011db47
+            SERVICE_PRINCIPAL: 44d50836-35fe-4029-87d5-697bcefc60c6
+            SERVICE_PRINCIPAL_TENANT: 4b33b6e8-313b-489d-a02b-725af517deab
             RESOURCE_GROUP: DevOpsLabARMDemoRG
             WEB_APP_NAME: devopslabtt
             LOCATION: "westus"
@@ -82,8 +82,8 @@ jobs:
       # deploy web app
       - name: Deploy web app
         env:
-          SERVICE_PRINCIPAL: http://AbelDemoSubscriptionSP
-          SERVICE_PRINCIPAL_TENANT: 72f988bf-86f1-41af-91ab-2d7cd011db47
+          SERVICE_PRINCIPAL: 44d50836-35fe-4029-87d5-697bcefc60c6
+          SERVICE_PRINCIPAL_TENANT: 4b33b6e8-313b-489d-a02b-725af517deab
           RESOURCE_GROUP: DevOpsLabARMDemoRG
           WEB_APP_NAME: devopslabtt
           PATH_TO_WEBSITE_ZIP: .\Tailwind.Traders.web.zip
