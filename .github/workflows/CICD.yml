@@ -57,7 +57,7 @@ jobs:
 
         - name: Azure login
           uses: Azure/login@v1
-            with:
+          with:
               creds: ${{secrets.SERVICE_PRINCIPAL_SECRET}}
         # provision and configure infrastructure using azure cli deploying arm template
         - name: Deploy ARM template 
