@@ -68,8 +68,8 @@ jobs:
             region: "${{env.location}}"
             template: ./Deploy/ARM/tt-iac.json
             paramters: 
-              RESOURCE_GROUP: ${{env.resource_group_name}}
-              WEB_APP_NAME: devopslabtt
+              resourceGroupName : ${{env.resource_group_name}}
+              webAppName : devopslabtt
               LOCATION: "{{env.location}}"
  
   # deploy:
