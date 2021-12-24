@@ -12,7 +12,7 @@
         },
         "webAppName": {
             "type": "string",
-            "defaultValue": "[concat('webApp-', uniqueString(resourceGroup().id))]",
+            "defaultValue": "[concat('webApp-', 'm2acc')]",
             "metadata": {
                 "description": "Web app name."
             },
