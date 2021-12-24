@@ -27,14 +27,7 @@ jobs:
         mkdir staging
         copy .\Deploy\Tailwind.Traders.web.zip .\staging
         copy .\Deploy\AzCLI\deployWebApp.ps1 .\staging
-    - name: show staging
-      run: |
-        echo cd staging
-        cd staging
-        echo pwd
-        pwd
-        echo ls
-        ls
+
     # upload build artifact
     - name: Publish build artifacts back to GitHub
       uses: actions/upload-artifact@master
@@ -58,7 +51,7 @@ jobs:
         - name: Azure login
           uses: Azure/login@v1
           with:
-              creds: ${{secrets.SERVICE_PRINCIPAL_SECRET}}
+              creds: ${{ secrets.SERVICE_PRINCIPAL_SECRET}}
         # provision and configure infrastructure using azure cli deploying arm template
         - name: Deploy ARM template 
           uses: Azure/arm-deploy@v1
