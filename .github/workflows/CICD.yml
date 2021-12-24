@@ -19,7 +19,7 @@ jobs:
       
     # setup nuget
     - name: Setup nuget
-      uses: warrenbuckley/Setup-Nuget@v1
+      uses: nuget/setup-nuget@v1
 
     # copy zip to staging
     - name: Build solution
@@ -27,7 +27,15 @@ jobs:
         mkdir staging
         copy .\Deploy\Tailwind.Traders.web.zip .\staging
         copy .\Deploy\AzCLI\deployWebApp.ps1 .\staging
-
+    
+    - name: show staging
+      run: |
+        echo cd staging
+        cd staging
+        echo pwd
+        pwd
+        echo ls
+        ls
     # upload build artifact
     - name: Publish build artifacts back to GitHub
       uses: actions/upload-artifact@master
