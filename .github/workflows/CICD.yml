@@ -67,10 +67,7 @@ jobs:
             subscriptionid: ${{env.subscriptionid}}
             region: "${{env.location}}"
             template: ./Deploy/ARM/tt-iac.json
-            paramters: 
-              resourceGroupName : ${{env.resource_group_name}}
-              webAppName : devopslabtt
-              LOCATION: "{{env.location}}"
+
  
   # deploy:
   #   needs: [build, provisionAndConfigure] 
