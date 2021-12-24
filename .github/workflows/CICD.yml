@@ -70,35 +70,35 @@ jobs:
             template: ./Deploy/ARM/tt-iac.json
 
  
-  # deploy:
-  #   needs: [build, provisionAndConfigure] 
-  #   runs-on: windows-latest
-  #   steps:
+  deploy:
+    needs: [build, provisionAndConfigure] 
+    runs-on: windows-latest
+    steps:
       
-  #     # download build artifacts
-  #     - name: Download build artifacts
-  #       uses: actions/download-artifact@master
-  #       with:
-  #         name: webapp
+      # download build artifacts
+      - name: Download build artifacts
+        uses: actions/download-artifact@master
+        with:
+          name: webapp
 
-  #     - name: show webapp directory
-  #       run: |
-  #         echo ls
-  #         ls
+      - name: show webapp directory
+        run: |
+          echo ls
+          ls
           
-  #     # deploy web app
-  #     - name: Deploy web app
-  #       env:
-  #         SERVICE_PRINCIPAL: 44d50836-35fe-4029-87d5-697bcefc60c6
-  #         SERVICE_PRINCIPAL_TENANT: 4b33b6e8-313b-489d-a02b-725af517deab
-  #         RESOURCE_GROUP: DevOpsLabARMDemoRG
-  #         WEB_APP_NAME: devopslabtt
-  #         PATH_TO_WEBSITE_ZIP: .\Tailwind.Traders.web.zip
-  #       run: >
-  #         powershell -command "& ./deployWebApp.ps1 "
-  #         -servicePrincipal %SERVICE_PRINCIPAL% 
-  #         -servicePrincipalSecret ${{ secrets.SERVICE_PRINCIPAL_SECRET }} 
-  #         -servicePrincipalTenantId %SERVICE_PRINCIPAL_TENANT% 
-  #         -resourceGroupName %RESOURCE_GROUP% 
-  #         -webAppName %WEB_APP_NAME% 
-  #         -pathToWebsiteZip %PATH_TO_WEBSITE_ZIP% 
+      # deploy web app
+      - name: Deploy web app
+        env:
+          SERVICE_PRINCIPAL: 3d70f322-cd4b-4c18-89f1-f6e06bd2cbf7
+          SERVICE_PRINCIPAL_TENANT: 4b33b6e8-313b-489d-a02b-725af517deab
+          RESOURCE_GROUP: DevOpsLabARMDemoRG
+          WEB_APP_NAME: webApp-m2acc
+          PATH_TO_WEBSITE_ZIP: .\Tailwind.Traders.web.zip
+        run: >
+          powershell -command "& ./deployWebApp.ps1 "
+          -servicePrincipal %SERVICE_PRINCIPAL% 
+          -servicePrincipalSecret ${{ secrets.SERVICE_IND_PRINCIPAL_SECRET }} 
+          -servicePrincipalTenantId %SERVICE_PRINCIPAL_TENANT% 
+          -resourceGroupName %RESOURCE_GROUP% 
+          -webAppName %WEB_APP_NAME% 
+          -pathToWebsiteZip %PATH_TO_WEBSITE_ZIP% 
